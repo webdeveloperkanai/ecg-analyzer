@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="legal-container"
+    style="background: var(--surface); padding: 3rem; border-radius: 20px; border: 1px solid var(--glass-border);">
+    <h1 style="color: var(--primary); margin-bottom: 2rem;">Medical Disclaimer</h1>
+
+    <div class="legal-content" style="line-height: 1.8;">
+        <p><strong>IMPORTANT:</strong> The NeuroCardio AI application is for <strong>informational and educational
+                purposes only</strong>.</p>
+
+        <br>
+        <h3>Not Medical Advice</h3>
+        <p>The content, analysis, and results provided by this application do not constitute medical advice, diagnosis,
+            or treatment. Always seek the advice of your physician or other qualified health provider with any questions
+            you may have regarding a medical condition.</p>
+
+        <br>
+        <h3>Accuracy</h3>
+        <p>While we strive for high accuracy using advanced machine learning algorithms, no automated system is perfect.
+            False positives and false negatives can occur. Do not disregard professional medical advice or delay in
+            seeking it because of something you have read or seen on this application.</p>
+
+        <br>
+        <h3>Emergency</h3>
+        <p>If you think you may have a medical emergency, call your doctor or emergency services immediately.</p>
+    </div>
+</div>
+{% endblock %}

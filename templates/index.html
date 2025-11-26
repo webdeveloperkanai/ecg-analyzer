@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-section">
+    <h1>AI-Powered <span class="gradient-text">ECG Analysis</span></h1>
+    <p class="subtitle">Detect heart abnormalities with 99.9% precision using our advanced Deep Learning algorithms.</p>
+</div>
+
+<div class="upload-container">
+    <div class="upload-box" id="drop-zone">
+        <div class="icon-pulse">
+            <i class="fa-solid fa-file-medical-alt"></i>
+        </div>
+        <h3>Upload ECG Scan</h3>
+        <p>Drag & drop your ECG image here or click to browse</p>
+        <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data" id="upload-form">
+            <input type="file" name="file" id="file-input" accept="image/*" hidden>
+            <button type="button" class="btn-primary" onclick="document.getElementById('file-input').click()">Choose
+                File</button>
+        </form>
+        <div id="preview-container" class="hidden">
+            <img id="image-preview" src="#" alt="Preview">
+            <div class="loading-overlay" id="loading-overlay">
+                <div class="spinner"></div>
+                <p>Analyzing...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="features-grid">
+    <div class="feature-card">
+        <i class="fa-solid fa-brain"></i>
+        <h4>Deep Learning</h4>
+        <p>Powered by Convolutional Neural Networks (CNN) trained on thousands of clinical samples.</p>
+    </div>
+    <div class="feature-card">
+        <i class="fa-solid fa-bolt"></i>
+        <h4>Instant Results</h4>
+        <p>Get detailed analysis reports in seconds, not days.</p>
+    </div>
+    <div class="feature-card">
+        <i class="fa-solid fa-shield-halved"></i>
+        <h4>Secure & Private</h4>
+        <p>Your data is processed locally or securely and never shared without consent.</p>
+    </div>
+</div>
+{% endblock %}

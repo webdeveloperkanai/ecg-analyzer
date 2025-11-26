@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="result-container">
+    <div class="result-header">
+        <h2>Analysis Report</h2>
+        <a href="{{ url_for('index') }}" class="btn-secondary"><i class="fa-solid fa-arrow-left"></i> Analyze
+            Another</a>
+    </div>
+
+    <div class="report-card">
+        <div class="image-section">
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Analyzed ECG">
+            <div class="status-badge">Analyzed</div>
+        </div>
+
+        <div class="details-section">
+            <div class="prediction-box">
+                <h3>Predicted Condition</h3>
+                <div class="diagnosis {{ 'danger' if label != 'Normal' else 'success' }}">
+                    <i class="fa-solid {{ 'fa-triangle-exclamation' if label != 'Normal' else 'fa-check-circle' }}"></i>
+                    {{ label }}
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="label">Confidence Score</span>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: {{ confidence * 100 }}%"></div>
+                    </div>
+                    <span class="value">{{ accuracy }}</span>
+                </div>
+            </div>
+
+            <div class="recommendation">
+                <h4><i class="fa-solid fa-user-doctor"></i> Recommendation</h4>
+                <p>
+                    {% if label == 'Normal' %}
+                    Your ECG scan appears normal. However, always consult with a healthcare professional for a
+                    comprehensive checkup.
+                    {% else %}
+                    Potential abnormalities detected. We strongly recommend consulting a cardiologist immediately for
+                    further diagnosis and validation.
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
